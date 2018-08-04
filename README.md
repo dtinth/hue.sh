@@ -39,7 +39,7 @@ HTTP/1.1 200 OK
 (JSON output)
 ```
 
-## Raw CLI (`hue`)
+## Light presets (`lights`)
 
 ```sh-session
 $ lights status
