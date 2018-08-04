@@ -1,0 +1,34 @@
+#!/bin/bash -e
+
+source ~/.huerc
+
+method="$1"
+path="$2"
+shift || true
+shift || true
+
+if [ ! "$HUE_API" ]
+then
+  echo "Must specify HUE_API in ~/.huerc" >&2
+  exit 1
+fi
+
+if [ ! "$HUE_USERNAME" ]
+then
+  echo "Must specify HUE_USERNAME in ~/.huerc" >&2
+  exit 1
+fi
+
+if [ ! "$method" ]
+then
+  echo "Must specify HTTP method" >&2
+  exit 1
+fi
+
+if [ ! "$path" ]
+then
+  echo "Must specify HTTP path" >&2
+  exit 1
+fi
+
+exec http "$method" "$HUE_API/api/$HUE_USERNAME/$path" "$@"

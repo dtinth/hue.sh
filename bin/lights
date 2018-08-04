@@ -1,0 +1,40 @@
+#!/bin/bash -e
+
+case "$1" in
+status)
+  hue get lights
+  ;;
+on)
+  hue put lights/1/state on:=true
+  hue put lights/2/state on:=true
+  ;;
+off)
+  hue put lights/1/state on:=false
+  hue put lights/2/state on:=false
+  ;;
+normal)
+  hue put lights/1/state on:=true hue:=6510 sat:=48 bri:=254
+  hue put lights/2/state on:=true hue:=5646 sat:=127 bri:=127
+  ;;
+dimmed)
+  hue put lights/1/state on:=true hue:=8402 sat:=140 bri:=77
+  hue put lights/2/state on:=true hue:=5646 sat:=192 bri:=16
+  ;;
+white)
+  hue put lights/1/state on:=true hue:=41442 sat:=48 bri:=254
+  hue put lights/2/state on:=true hue:=41442 sat:=48 bri:=254
+  ;;
+colorloop)
+  hue put lights/1/state effect=colorloop
+  sleep 10
+  hue put lights/2/state effect=colorloop
+  ;;
+nocolorloop)
+  hue put lights/1/state effect=none
+  hue put lights/2/state effect=none
+  ;;
+*)
+  echo "Unknown preset $1" >&2
+  exit 1
+  ;;
+esac
