@@ -20,6 +20,10 @@ dimmed)
   hue put lights/1/state on:=true hue:=8402 sat:=140 bri:=77
   hue put lights/2/state on:=true hue:=5646 sat:=192 bri:=16
   ;;
+saturated)
+  hue put lights/1/state on:=true hue:=7000 sat:=240 bri:=160
+  hue put lights/2/state on:=true hue:=49000 sat:=240 bri:=160
+  ;;
 white)
   hue put lights/1/state on:=true hue:=41442 sat:=48 bri:=254
   hue put lights/2/state on:=true hue:=41442 sat:=48 bri:=254
